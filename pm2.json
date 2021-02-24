@@ -1,9 +1,0 @@
-{
-  "apps": [
-    {
-      "name": "wiser-educacao",
-      "script": "yarn",
-      "args": "start"
-    }
-  ]
-}
