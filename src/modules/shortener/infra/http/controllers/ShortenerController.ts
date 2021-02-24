@@ -7,7 +7,7 @@ import FindHashShortenerService from '@modules/shortener/services/FindHashShorte
 export default class ShortenerController {
   public async create(req: Request, res: Response): Promise<Response> {
     const { url } = req.body;
-    const { host } = req.headers;
+    const host = process.env.API_URL || `http://localhost:${process.env.PORT}`;
 
     const createShortener = container.resolve(CreateShortenerService);
     const shortener = await createShortener.execute({
