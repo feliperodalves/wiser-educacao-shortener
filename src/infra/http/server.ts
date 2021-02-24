@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import '@utils/dotenv';
 
 import express, { Request, Response, NextFunction } from 'express';
@@ -6,16 +7,17 @@ import { errors } from 'celebrate';
 import 'express-async-errors';
 
 import AppError from '@utils/errors/AppError';
-//import routes from '@infra/http/routes';
+import routes from '@infra/http/routes';
 
 import '@infra/typeorm';
+import '@infra/container';
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-//app.use(routes);
+app.use(routes);
 
 app.use(errors());
 app.use((err: Error, req: Request, res: Response, _: NextFunction) => {
