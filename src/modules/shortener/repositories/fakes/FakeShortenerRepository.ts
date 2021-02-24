@@ -1,4 +1,4 @@
-import { uuid } from 'uuidv4';
+import { v4 as uuidv4 } from 'uuid';
 import { isAfter } from 'date-fns';
 
 import IShortenerRepository from '@modules/shortener/repositories/IShortenerRepository';
@@ -34,7 +34,7 @@ class ShortenerRepository implements IShortenerRepository {
     const shortener = new Shortener();
 
     Object.assign(shortener, {
-      id: uuid(),
+      id: uuidv4(),
       original_url,
       expires_at,
       shortener_hash,
